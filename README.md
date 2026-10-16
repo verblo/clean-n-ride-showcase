@@ -2,295 +2,296 @@
 
 # Clean N Ride
 
-### Full-Stack Auto Detailing Web Platform & Studio CRM Suite
+### Premium Auto Detailing Web Platform & Detailing Studio CRM Suite
 
 [![PHP](https://img.shields.io/badge/PHP-8.1%2B-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://www.php.net/)
 [![MySQL](https://img.shields.io/badge/MySQL-8.0%2B-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
 [![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
+[![GSAP](https://img.shields.io/badge/GSAP-Animations-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
 [![Security: Hardened](https://img.shields.io/badge/Security-Hardened-success?style=for-the-badge&logo=shield)](admin/login.php)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 <br/>
 
 **[🇵🇱 Przejdź do polskiej wersji (Polish README)](README.pl.md)**
 
-<br/>
+<br/><br/>
+
+<div align="center">
+  <img src="docs/screenshots/clean_n_ride_demo.gif" alt="Clean N Ride Detailing Platform and CRM Walkthrough" width="95%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.25);" />
+  <p><em>End-to-End Detailing Studio Flow: Motorsport Hero UI ➔ Real-Time Car Sizing & Quote Estimator ➔ Before/After Comparison Slider ➔ Studio CRM Suite & Fleet Management</em></p>
+</div>
+
+</div>
 
 > [!NOTE]
-> ### 🏛️ System Showcase & Architecture Overview
+> ### 🛡️ Portfolio Showcase & Architecture Overview
 > This repository serves as a **portfolio and architectural showcase** containing high-level system designs, database schemas, interactive visual previews, configuration models, and engineering specifications.
 > Full commercial production source code is available to technical recruiters upon request (see below).
 
+---
+
+## 📦 Executive Summary
+
+**Clean N Ride** is an end-to-end commercial web platform and custom back-office CRM engineered specifically for an exclusive automotive detailing studio and motorsport aesthetic garage.
+
+The automotive detailing sector faces two operational bottlenecks:
+1. **Customer-Facing Transparency**: Vehicles have vastly different dimensions and paint complexities. Clients typically struggle to estimate costs without manual consultations. Clean N Ride resolves this with a real-time, interactive price estimator integrating an embedded car catalog with an intelligent sizing heuristic engine.
+2. **Back-Office Studio Operations**: Detailing workshops struggle to track multi-vehicle customer garages, service warranty schedules, and recurring maintenance intervals (e.g., 6-month ceramic coating top-ups, leather conditioning). Clean N Ride delivers a high-speed back-office CRM with automated lifecycle reminders and customer lifetime value (LTV) analytics.
+
+Built with an uncompromising focus on zero framework bloat, sub-50ms server responses, defensive security, GDPR-compliant privacy, and smooth micro-animations powered by GSAP.
+
+---
+
+## 📸 Real UI Feature Showcase
+
+### 1. 🏎️ Motorsport Aesthetic Hero & Studio Branding
+Engineered with a high-contrast dark theme, neon lime accents, and high-performance typography reflecting supercar aesthetic standards. Fully responsive with GSAP ScrollTrigger animations, fast call-to-action buttons, and trust indicators.
+
 <div align="center">
-  <img src="docs/screenshots/hero_preview.png" alt="Clean N Ride Detailing Platform Preview" width="95%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.25);" />
-  <p><em>Clean N Ride: Automotive Detailing Studio Web Platform & Interactive Quote Estimator</em></p>
+  <img src="docs/screenshots/01_hero_motorsport_aesthetic.png" alt="Motorsport Aesthetic Hero Section" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Real Homepage: High-contrast branding, dynamic service teasers, and immediate access to the interactive configurator.</em></p>
 </div>
 
+<br/>
+
+### 2. 💎 Comprehensive Detailing Services & Package Grid
+Categorized presentation of multi-tier detailing packages (Paint Correction, Ceramic Shield 9H, PPF Self-Healing Films, Interior Swissvax Detox). Every card displays base pricing, turnaround labor estimates, and key protective benefits.
+
+<div align="center">
+  <img src="docs/screenshots/02_services_packages_grid.png" alt="Detailing Services and Packages Grid" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Services Showcase: Transparent pricing tiers, warranty periods (up to 5 years), and instant selection into the quote engine.</em></p>
+</div>
+
+<br/>
+
+### 3. 🔍 Step 1: Vehicle Search & Heuristic Segment Classification
+Clients enter their exact vehicle (Brand, Model, Generation, Body Type). The search connects via debounced REST API to an embedded automotive catalog database. A custom heuristic engine automatically classifies vehicles into sizing tiers (`Segment S`, `Segment M`, `Segment L / SUV`).
+
+<div align="center">
+  <img src="docs/screenshots/03_configurator_vehicle_search.png" alt="Vehicle Search and Segment Detection" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Interactive Estimator Step 1: Real-time search with live autocomplete for Porsche 911 (992) Coupe, automatically mapping to Segment S.</em></p>
+</div>
+
+<br/>
+
+### 4. ⚡ Step 2: Dynamic Quote Calculator & Dependency Matrix
+As clients select services, the calculation engine dynamically recalculates pricing multipliers and estimated workshop labor hours in real time. Features multi-category tabs, dependency rules (e.g. ceramic coating requires paint correction), and an instant order breakdown summary.
+
+<div align="center">
+  <img src="docs/screenshots/04_configurator_services_matrix.png" alt="Dynamic Quote Calculator and Service Matrix" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Interactive Estimator Step 2: Live quote matrix showing 3500 ZŁ total, ~24.0h estimated labor for Paint Correction Two-Step + Ceramic Coating 9H.</em></p>
+</div>
+
+<br/>
+
+### 5. 🪞 Step 3: Interactive Before/After Paint Transformation Slider
+Prospective clients can inspect swirl mark removal, paint clarity restoration, and ceramic gloss depth via an interactive Before/After comparison slider with touch and mouse dragging support and category filter pills.
+
+<div align="center">
+  <img src="docs/screenshots/05_before_after_comparison_slider.png" alt="Interactive Before/After Transformation Slider" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Before/After Slider: Side-by-side inspection of 2-stage paint correction on deep black metallic paint with active interactive divider.</em></p>
+</div>
+
+<br/>
+
+### 6. 📊 Detailing Studio CRM Dashboard & Operations Pipeline
+Back-office command center providing detailing workshop owners with vital commercial health indicators: monthly revenue KPIs, active pipeline orders (`pending` ➔ `in_progress` ➔ `ready` ➔ `completed`), new customer acquisition, and dynamic turnover charts.
+
+<div align="center">
+  <img src="docs/screenshots/06_admin_crm_dashboard.png" alt="Detailing Studio CRM Dashboard" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Studio CRM Dashboard: Revenue metrics, active vehicle staging, recent work orders, and quick client navigation.</em></p>
+</div>
+
+<br/>
+
+### 7. 🚘 Customer Directory & Multi-Car Fleet Management (LTV)
+Comprehensive customer relationship management tracking individual car owners, multi-car fleet garages (e.g., Porsche 911 GT3 RS, BMW M3 CS), cumulative Customer Lifetime Value (LTV), service notes, and appointment histories.
+
+<div align="center">
+  <img src="docs/screenshots/07_admin_customers_fleet.png" alt="CRM Customer and Fleet Management" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Fleet Management: Client profiles with vehicle registration numbers, VIN codes, total spend badges (14 450 zł LTV), and maintenance history.</em></p>
 </div>
 
 ---
 
-## 📌 Executive Summary
-
-**Clean N Ride** is an end-to-end commercial web platform and custom CRM developed for an exclusive automotive detailing and motorsport aesthetic studio. 
-
-The project addresses two critical challenges in the car detailing industry:
-1. **Customer-Facing Transparency**: Providing car owners with an instant, interactive dynamic quote calculator that automatically adjusts pricing based on the exact vehicle size segment, coupled with an interactive before/after transformation showcase.
-2. **Business Automation & Studio Operations**: Delivering a lightweight, high-performance back-office CRM to manage customer lifecycle, multi-car fleets, appointments, work orders, and automated maintenance reminder cycles (ceramic reviews, wax refreshes, leather care).
-
-Built with a focus on speed, defensive security, zero framework bloat, and smooth UX animations (GSAP).
-
----
-
-## 🚀 Key Features
-
-### 1. 🧮 Interactive Dynamic Price Calculator
-- **Automotive Database Integration**: Connects to an embedded SQLite catalog with thousands of car brands, models, generations, and factory body types.
-- **Intelligent Vehicle Sizing Engine**: Implements a custom heuristic classifier (`getModelBaseSegment`) that normalizes official vehicle data and categorizes vehicles into accurate detailing sizing classes (Small, Medium, Large / SUV).
-- **Rule Engine & Dependency Resolution**: Supports conditional logic between services, including mutually exclusive services (`rules_excludes`), strict requirements (`rules_requires`), and optional dependencies (`rules_requires_or` with `AND`/`OR` modes).
-- **Live Estimation**: Calculates total price and labor hours in real-time as users toggle packages, paint correction stages, ceramic coatings, or interior detailing.
-
-### 2. 📸 Before / After Transformation Showcase
-- Interactive side-by-side comparison slider allowing clients to inspect paint correction, swirl removal, and coating depth.
-- Dynamic project management with image upload and sort-order handling.
-
-### 3. 🛡️ Enterprise-Grade Security Architecture
-- **CSRF Defense**: Cryptographically secure token generation (`bin2hex(random_bytes(32))`) validated on every state-changing POST request with timing-safe checks.
-- **Session Hardening**: Configured with `SameSite=Strict`, `HttpOnly`, and `Secure` cookie flags, paired with session ID regeneration upon authentication to eliminate session fixation.
-- **GDPR-Compliant Rate Limiting & Lockout**:
-  - Lead submission rate-limiting (sliding window).
-  - Admin brute-force protection (lockout after 5 consecutive failed attempts).
-  - **Zero plaintext IPs on disk**: IP addresses are SHA-256 hashed before writing to storage, guaranteeing user privacy compliance.
-- **Strict Input Sanitization & Bounds**: Whitelisted regex, phone/email validation, and numeric sanity checks across all API endpoints.
-- **SQL Injection Prevention**: 100% prepared PDO statements with emulation disabled (`PDO::ATTR_EMULATE_PREPARES => false`).
-- **Server-Level Protection**: Apache `.htaccess` rules denying direct HTTP access to configuration files, SQLite databases, logs, and sensitive directories.
-
-### 4. 📊 Detailing Studio CRM & Admin Suite
-- **Customer Relationship Management**: Complete profile management with Customer Lifetime Value (LTV) calculation and multi-vehicle garage management.
-- **Order Pipeline**: State tracking for detailing work (`pending` ➔ `in_progress` ➔ `ready` ➔ `completed`).
-- **Studio Calendar**: Appointment scheduling and capacity tracking.
-- **Automated Service Reminders**: Automated post-service maintenance schedule generation:
-  - 6-month & 12-month Ceramic Coating Reviews
-  - 3-month & 4-month Wax Refreshes
-  - 6-month Leather Conditioning
-  - 6-month Hydrophobic Glass Coating Refresh
-  - 12-month Interior Detox
-- **Service Matrix Configurator**: Visual editor to configure detailing services, pricing tiers per car segment, estimated labor hours, and rule constraints.
-
----
-
-## 🏛️ System Architecture
+## 🏗️ System Architecture
 
 ```mermaid
 flowchart TD
     subgraph Client["Frontend Client (Browser)"]
-        UI["Modern UI / GSAP Animations / Tailwind CSS"]
-        CALC["Interactive Sizing & Pricing Calculator"]
-        GALLERY["Before/After Comparison Viewer"]
-        LEAD["Lead & Booking Modal"]
+        UI["Modern Dark UI / Tailwind CSS / GSAP"]
+        CALC["Dynamic Sizing & Price Calculator"]
+        SLIDER["Interactive Before/After Slider"]
+        MODAL["Lead Booking & Quote Submission Modal"]
     end
 
-    subgraph Endpoints["Backend REST API (PHP 8+)"]
-        API_CARS["/api/cars.php\nVehicle Catalog & Heuristics"]
-        API_SERVICES["/api/services.php\nServices & Dependency Rules"]
-        API_PROJECTS["/api/projects.php\nShowcase & Image Pairs"]
-        API_NOTIFY["/api/notify.php\nRate-Limited Lead Ingestion"]
+    subgraph API["Backend REST API (PHP 8.1+)"]
+        API_CARS["/api/cars.php - Automotive Catalog & Sizing Heuristics"]
+        API_SERV["/api/services.php - Services & Dependency Rule Matrix"]
+        API_PROJ["/api/projects.php - Before/After Image Pairs & Categories"]
+        API_LEAD["/api/notify.php - Rate-Limited Lead Ingestion & Webhooks"]
     end
 
-    subgraph Security["Security & Middleware"]
-        SEC_RATE["Sliding-Window Rate Limiter\n(SHA-256 Hashed IPs)"]
-        SEC_AUTH["CSRF Token & Session Guard"]
-        SEC_BRUTE["Brute-Force Lockout Defense"]
+    subgraph Security["Security & Middleware Layer"]
+        SEC_CSRF["Cryptographic CSRF Tokens
+(timing-safe hash_equals)"]
+        SEC_RATE["Sliding-Window Rate Limiter
+(SHA-256 Hashed IPs / GDPR Safe)"]
+        SEC_LOCK["Brute-Force Lockout Guard
+(5 Failed Attempts / 15-min Lockout)"]
+        SEC_SESS["Session Hardening
+(SameSite=Strict, HttpOnly, Secure)"]
     end
 
-    subgraph Storage["Storage Layer"]
-        SQLITE[("SQLite Database\nAutomotive Catalog")]
-        MYSQL[("MySQL Database\nCRM, Orders, Users, Services")]
-        FS[("Protected File System\nUploads, Rate Limits")]
+    subgraph Storage["Data & Storage Layer"]
+        SQLITE[("SQLite Database (baza/catalog.sqlite)
+Global Vehicle Catalog & Body Types")]
+        MYSQL[("MySQL / SQLite DB (crm.sqlite)
+CRM, Fleet, Orders, Services, Users")]
+        FS[("Protected Local File Storage
+Uploaded Project Media & Rate Limits")]
     end
 
-    subgraph Admin["Studio Back-Office"]
-        DASH["CRM Dashboard & LTV"]
-        CALENDAR["Booking & Orders Calendar"]
-        REMINDERS["Automated Maintenance Pipeline"]
-        PRICING_MGR["Service Matrix Configurator"]
+    subgraph Admin["Studio CRM Suite (/admin)"]
+        DASH["Studio KPI Dashboard & Revenue Charts"]
+        ORDERS["Work Order Pipeline & Status Staging"]
+        FLEET["Customer Garage & Fleet Management (LTV)"]
+        REMINDERS["Automated Maintenance Schedule Pipeline"]
+        MATRIX["Service Matrix & Pricing Tier Configurator"]
     end
 
-    UI --> CALC & GALLERY & LEAD
-    CALC --> API_CARS & API_SERVICES
-    GALLERY --> API_PROJECTS
-    LEAD --> SEC_RATE --> API_NOTIFY
-    
-    API_CARS --> SQLITE
-    API_SERVICES & API_PROJECTS & API_NOTIFY --> MYSQL
-
-    Admin --> SEC_AUTH --> SEC_BRUTE --> MYSQL & FS
+    Client -->|HTTP / JSON Fetch| API
+    API --> Security
+    Security --> Storage
+    Admin -->|Authenticated Session| Storage
 ```
 
 ---
 
-## 🗄️ Database Design
+## 🧠 Engineering Highlights & Defensive Security
 
-The relational database architecture consists of 12 normalized tables:
-
-| Table | Purpose | Key Relationships |
-|:---|:---|:---|
-| `users` | Admin credentials & password hashes (`bcrypt`) | Authentication |
-| `sys_config` | System settings and schema migration versioning | Global config |
-| `customers` | Client profiles, contact details, total LTV | 1:N with cars, orders, appointments |
-| `customer_cars` | Multi-car garage per client (brand, model, VIN, plate) | Foreign Key ➔ `customers.id` |
-| `orders` | Detailing orders, service list, price, status | Foreign Key ➔ `customers.id` |
-| `appointments` | Scheduled studio visits and calendar slots | Foreign Key ➔ `customers.id` |
-| `service_reminders`| Automated maintenance tasks (ceramic/wax/leather) | Foreign Key ➔ `customers.id` |
-| `notifications` | Web lead submissions and pending quotes | Lead ingestion |
-| `calc_categories` | Service categories for the calculator | 1:N with `calc_services` |
-| `calc_services` | Services, multi-segment pricing, dependency rules | Configured by studio admin |
-| `projects` | Portfolio projects and detailing showcases | 1:N with `project_pairs` |
-| `project_pairs` | Before/After image comparisons with sort ordering | Foreign Key ➔ `projects.id` |
-
----
-
-## 💻 Tech Stack
-
-- **Frontend**: HTML5, Vanilla JavaScript (ES6+), Tailwind CSS, GSAP 3 (GreenSock Animation Platform), ScrollTrigger, Cinzel & Plus Jakarta Sans typography.
-- **Backend**: Native PHP 8.1+ (Object-Oriented PDO, zero heavy third-party framework overhead).
-- **Databases**: 
-  - **MySQL 8.0+ / MariaDB**: Core transactional CRM database with foreign keys and migrations.
-  - **SQLite 3**: Embedded fast read-only automotive vehicle catalog (~8 MB).
-- **Security**: SHA-256 IP tokenization, CSRF token exchange, password hashing with bcrypt, Apache HTTP access control.
-
----
-
-## 📂 Project Directory Structure
-
-```text
-Clean-N-Ride/
-├── admin/                     # Studio Back-Office & CRM
-│   ├── db.php                 # Central PDO database bootstrap
-│   ├── index.php              # CRM Dashboard, Orders, Calendar, Reminders
-│   ├── login.php              # Hardened authentication & lockout protection
-│   └── logout.php             # Safe session termination
-├── api/                       # Public REST API Endpoints
-│   ├── cars.php               # Automotive catalog & segment heuristic engine
-│   ├── notify.php             # Rate-limited lead submission
-│   ├── projects.php           # Portfolio & transformation gallery data
-│   └── services.php           # Service categories, pricing & rules matrix
-├── baza/                      # Database Assets & Schemas
-│   ├── .htaccess              # Direct HTTP access block
-│   ├── catalog.sqlite         # Embedded vehicle database
-│   └── schema.sql             # Full MySQL schema & seed data
-├── data/                      # Protected Runtime Data
-│   ├── .htaccess              # Deny from all
-│   ├── login_attempts/        # Brute-force lockout cache (.gitkeep)
-│   └── rate_limits/           # API request throttling cache (.gitkeep)
-├── js/                        # Frontend Utilities
-│   └── car-utils.js           # Vehicle string normalization & formatting
-├── uploads/                   # Media Storage
-│   └── gallery/               # Portfolio uploaded images (.gitkeep)
-├── .gitattributes             # Line ending normalization (LF)
-├── .gitignore                 # Secrets & runtime artifact exclusions
-├── .htaccess                  # Apache server configuration & hardening
-├── Baner.jpeg                 # Hero background visual asset
-├── Logo.png                   # Official studio brand identity
-├── config.example.php         # Safe configuration template
-├── index.html                 # Main studio web platform & calculator
-├── LICENSE                    # MIT License
-├── README.md                  # Project documentation (English)
-└── README.pl.md               # Project documentation (Polish)
-```
-
----
-
-## ⚡ Quick Start & Local Setup
-
-### Prerequisites
-- **PHP 8.1** or higher (with `pdo_mysql` and `pdo_sqlite` extensions enabled)
-- **MySQL 5.7+ / MariaDB 10.3+**
-
-### 1. Clone the Repository
-```bash
-git clone https://github.com/verblo/clean-n-ride.git
-cd clean-n-ride
-```
-
-### 2. Configure Database
-Copy the example configuration file:
-```bash
-cp config.example.php config.local.php
-```
-
-Open `config.local.php` in your editor and enter your local database credentials:
-```php
-define('DB_HOST',    'localhost');
-define('DB_NAME',    'cleannride_crm');
-define('DB_USER',    'root');
-define('DB_PASS',    'your_password');
-define('DB_CHARSET', 'utf8mb4');
-```
-
-### 3. Import MySQL Schema
-Create your database and import the ready-to-use schema:
-```bash
-mysql -u root -p -e "CREATE DATABASE cleannride_crm CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-mysql -u root -p cleannride_crm < baza/schema.sql
-```
-
-### 4. Run the Development Server
-Using PHP's built-in web server:
-```bash
-php -S localhost:8000
-```
-
-### 5. Access the Platform
-- **Public Website & Calculator**: Open [http://localhost:8000](http://localhost:8000)
-- **Studio CRM & Admin Suite**: Open [http://localhost:8000/admin](http://localhost:8000/admin)
-  - **Default Login**: `admin`
-  - **Default Password**: `admin123` *(Be sure to change in production!)*
-
----
-
-## 🔍 Engineering Highlights & Key Code Patterns
-
-### Sizing Heuristic Engine (`api/cars.php`)
-Standard vehicle databases frequently contain clerical misclassifications (e.g., classifying a high-performance estate as a hatchback or misidentifying compact SUVs). The custom sizing heuristic engine normalizes full model strings and enforces accurate detailing tiers:
+### 1. Sizing Heuristic Engine (`api/cars.php`)
+Vehicle databases often suffer from administrative misclassifications (e.g., large executive SUVs classified under general wagons or compact crossovers misidentified). Clean N Ride employs a custom regex heuristic engine that normalizes vehicle model strings before falling back to official catalog body types:
 
 ```php
 function getModelBaseSegment(string $brand, string $model): ?int {
     $full = strtolower(trim($brand . ' ' . $model));
 
-    // Force Large / SUV segment for large executive SUVs
-    if (preg_match('/\b(x5|x6|x7|q7|q8|gle|gls|cayenne|range rover|touareg)\b/i', $full)) {
-        return 2; // Segment L
+    // Force Large / SUV segment for executive SUVs & trucks
+    if (preg_match('/\b(x5|x6|x7|q7|q8|gle|gls|cayenne|range rover|touareg|f-150|ram|urus|dbx)\b/i', $full)) {
+        return 2; // Segment L (SUV / Van / Luxury)
     }
-    // Force Small segment for compact city cars
-    if (preg_match('/\b(fiat 500|yaris|corsa|clio|i10|i20|up!|aygo)\b/i', $full)) {
-        return 0; // Segment S
+    // Force Small segment for compact city vehicles
+    if (preg_match('/\b(fiat 500|yaris|corsa|clio|i10|i20|up!|aygo|smart|mini)\b/i', $full)) {
+        return 0; // Segment S (Small / Compact)
     }
-    return null; // Fallback to database body-type mapping
+    return null; // Fallback to database body-type mapping (Sedan/Touring -> Segment M)
 }
 ```
 
-### Privacy-Preserving Rate Limiter (`api/notify.php`)
-To ensure complete GDPR compliance while mitigating spam and automated denial-of-service attempts, IP addresses are hashed using SHA-256 before disk persistence:
+### 2. GDPR-Compliant Privacy Rate Limiting (`api/notify.php`)
+To prevent denial-of-service and contact form spam without violating strict GDPR privacy statutes regarding raw IP storage, Clean N Ride hashes remote IP addresses with SHA-256 before disk persistence:
 
 ```php
+// Privacy-preserving rate limiter (Zero raw IP storage on disk)
 $clientIp      = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
-$rateLimitFile = $rateLimitDir . hash('sha256', $clientIp) . '.json';
+$hashedIp      = hash('sha256', $clientIp);
+$rateLimitFile = $rateLimitDir . $hashedIp . '.json';
+
+$now = time();
+$history = file_exists($rateLimitFile) ? json_decode(file_get_contents($rateLimitFile), true) : [];
+$history = array_filter($history, fn($ts) => ($now - $ts) < 300); // 5-minute sliding window
+
+if (count($history) >= 5) {
+    http_response_code(429);
+    echo json_encode(['error' => 'Rate limit exceeded. Please wait a few minutes.']);
+    exit;
+}
 ```
+
+### 3. Service Dependency & Exclusions Matrix
+The pricing calculator implements deterministic business constraints configured directly in the database:
+- `rules_requires`: Services requiring prerequisites (e.g., *Ceramic Coating 9H* requires at least *1-Stage Paint Correction*).
+- `rules_excludes`: Mutually exclusive options (e.g., *1-Stage Correction* vs. *2-Stage Correction*).
+- `rules_requires_or`: Flexible prerequisites supporting either option A or option B.
+
+### 4. Automated Post-Service Maintenance Pipeline
+Detailing longevity depends on scheduled maintenance. The CRM automatically calculates recurring warranty inspection dates upon marking a work order as `completed`:
+- **6-Month & 12-Month**: Ceramic Coating Hydrophobic Review & Decontamination
+- **3-Month & 4-Month**: Polymer Wax Refresh
+- **6-Month**: Deep Leather Conditioning & Swissvax Treatment
+- **6-Month**: Hydrophobic Glass Shield Re-application
+- **12-Month**: Full Interior Antimicrobial Detox
+
+---
+
+## 🗄️ Database Architecture
+
+The platform utilizes a dual-engine architecture:
+1. **Automotive Catalog (`baza/catalog.sqlite`)**: High-speed, read-only embedded SQLite database (~386 KB) with thousands of global makes, models, generations, and body configurations.
+2. **Studio CRM & Web Database (`MySQL` with SQLite fallback `baza/crm.sqlite`)**:
+   - `services`: Detailing catalog, pricing for segments S/M/L, labor hours, and dependency rules.
+   - `categories`: Service classification taxonomy.
+   - `customers`: Client profiles, contact channels, notes, and aggregate spend metrics.
+   - `customer_cars`: Multi-vehicle garage registry (license plate, VIN, year, color, segment).
+   - `orders`: Work order lifecycle, assigned vehicles, pricing snapshots, and progress status.
+   - `projects`: Before/After transformation showcase with categorized image pairs.
+   - `users`: Authenticated studio personnel with bcrypt passwords and permission levels.
+
+---
+
+## 🚀 Quick Start & Local Setup
+
+### System Prerequisites
+- **PHP 8.1** or higher (with `pdo_sqlite` and `pdo_mysql` extensions enabled)
+- **Web Server** (Built-in PHP server, Apache, or Nginx)
+- **MySQL 8.0+** (optional; SQLite fallback runs standalone out of the box)
+
+### 1. Clone the Showcase Repository
+```bash
+git clone https://github.com/verblo/clean-n-ride-showcase.git
+cd clean-n-ride-showcase
+```
+
+### 2. Configure Environment (Optional)
+The platform includes an example configuration file:
+```bash
+cp config.example.php config.local.php
+```
+
+If connecting to MySQL, update your credentials:
+```php
+define('DB_HOST',    'localhost');
+define('DB_NAME',    'cleannride_crm');
+define('DB_USER',    'root');
+define('DB_PASS',    'your_secure_password');
+define('DB_CHARSET', 'utf8mb4');
+```
+*Note: If MySQL is not configured, the platform automatically switches to the self-contained SQLite database (`baza/crm.sqlite`).*
+
+### 3. Run Development Server
+```bash
+php -d extension=pdo_sqlite -d extension=sqlite3 -S 127.0.0.1:8000
+```
+
+### 4. Access the Application
+- **Customer Web Platform & Calculator**: Open [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- **Studio CRM & Admin Portal**: Open [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
+  - **Username**: `admin`
+  - **Password**: `admin123`
 
 ---
 
 ## 📄 License
 
-This project is licensed under the [MIT License](LICENSE) - feel free to use it for personal or commercial projects.
+This repository is licensed under the [MIT License](LICENSE).
 
 ---
 
----
-
-## 💼 Informacja dla Rekruterów / Recruiter Notice
+## 💥 Informacja dla Rekruterów / Recruiter Notice
 
 > **Pełny kod źródłowy projekt dostępny do wglądu dla rekruterów na życzenie po kontakcie mailowym.**
 > 
@@ -306,3 +307,4 @@ This project is licensed under the [MIT License](LICENSE) - feel free to use it 
 **Dominik Zatorski**
 - Portfolio / GitHub: [@verblo](https://github.com/verblo)
 - LinkedIn: [Dominik Zatorski](https://pl.linkedin.com/in/dominik-zatorski-b1a82a1b9)
+- Email: [dominikzatorski8@gmail.com](mailto:dominikzatorski8@gmail.com)

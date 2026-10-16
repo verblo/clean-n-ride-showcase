@@ -9,249 +9,292 @@
 [![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
 [![JavaScript](https://img.shields.io/badge/JavaScript-ES6%2B-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![License: MIT](https://img.shields.io/badge/Licencja-MIT-green.svg?style=for-the-badge)](LICENSE)
-[![Security: Hardened](https://img.shields.io/badge/Bezpieczeństwo-Wzmocnione-success?style=for-the-badge&logo=shield)](admin/login.php)
+[![GSAP](https://img.shields.io/badge/GSAP-Animacje-88CE02?style=for-the-badge&logo=greensock&logoColor=white)](https://greensock.com/gsap/)
+[![Bezpieczeństwo: Wzmocnione](https://img.shields.io/badge/Bezpiecze%C5%84stwo-Wzmocnione-success?style=for-the-badge&logo=shield)](admin/login.php)
+[![Licencja: MIT](https://img.shields.io/badge/Licencja-MIT-green.svg?style=for-the-badge)](LICENSE)
 
 <br/>
 
 **[🇬🇧 Switch to English Version (README.md)](README.md)**
 
+<br/><br/>
+
+<div align="center">
+  <img src="docs/screenshots/clean_n_ride_demo.gif" alt="Prezentacja Platformy Clean N Ride i CRM" width="95%" style="border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.25);" />
+  <p><em>Pełen przepływ studia detailingu: Estetyka Motorsport Hero ➔ Kalkulator Gabarytów i Cen w Czasie Rzeczywistym ➔ Interaktywny Porównywarka Przed / Po ➔ Panel CRM Studia & Baza Floty Klientów</em></p>
+</div>
+
+</div>
+
+> [!NOTE]
+> ### 🛡️ Showcase Projektu & Specyfikacja Techniczna
+> Niniejsze repozytorium pełni rolę **publicznego showcase'u architektonicznego i portfolio**, zawierając opisy architektoniczne, schematy baz danych, interaktywne zrzuty ekranu, konfigurację oraz standardy inżynieryjne.
+> Pełny komercyjny kod źródłowy projektu jest dostępny do wglądu dla rekruterów na życzenie (patrz sekcja poniżej).
+
+---
+
+## 📦 O Projekcie
+
+**Clean N Ride** to pełnozakresowa (full-stack) komercyjna platforma internetowa wraz z dedykowanym systemem CRM, opracowana dla ekskluzywnego studia auto detailingu oraz motorsport aesthetics.
+
+Branża detailingu pojazdów mierzy się z dwoma kluczowymi wąskimi gardłami:
+1. **Przejrzystość wyceny dla klienta**: Różne gabaryty aut oraz stan powłoki lakierniczej uniemożliwiają sztywne cenniki bez czasochłonnych konsultacji. Clean N Ride rozwiązuje ten problem za pomocą dynamicznego kalkulatora wyceny on-line, integrującego bazę pojazdów z silnikiem heurystycznym kategoryzacji gabarytów.
+2. **Operacyjna organizacja pracy studia**: Warsztaty detailingu tracą czas na manualne śledzenie garaży klientów, terminów gwarancji i cykli przeglądów (np. 6-miesięczny przegląd ceramiki, odświeżenie wosku). Clean N Ride dostarcza lekki, błyskawiczny CRM z automatycznym potokiem przypomnień i analityką Customer Lifetime Value (LTV).
+
+Aplikacja powstała bez narzutu ciężkich frameworków, gwarantując czasy odpowiedzi serwera poniżej 50 ms, wysokie bezpieczeństwo defensywne, pełną zgodność z RODO oraz płynne animacje UX oparte na GSAP.
+
+---
+
+## 📸 Prezentacja Rzeczywistego Interfejsu (Real UI Showcase)
+
+### 1. 🏎️ Motorsport Aesthetic Hero & Branding Studia
+Mocny, kontrastowy ciemny motyw z akcentami neon lime oraz typografią motorsportową. W pełni responsywny layout, mikro-animacje GSAP ScrollTrigger oraz szybkie wezwania do działania (CTA).
+
+<div align="center">
+  <img src="docs/screenshots/01_hero_motorsport_aesthetic.png" alt="Sekcja Hero Motorsport Aesthetic" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Rzeczywista strona główna: Nowoczesny branding, zwiastuny pakietów i bezpośrednie przejście do kalkulatora wyceny.</em></p>
+</div>
+
+<br/>
+
+### 2. 💎 Katalog Usług i Pakietów Detailingowych
+Przejrzysta kategoryzacja usług studia (Korekta lakieru One-Step/Two-Step, Powłoki ceramiczne 9H, Folie ochronne PPF, Detailing wnętrza Swissvax). Każda karta prezentuje cenę bazową, szacowany czas roboczy oraz korzyści ochronne.
+
+<div align="center">
+  <img src="docs/screenshots/02_services_packages_grid.png" alt="Siatka Usług i Pakietów Detailingowych" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Katalog Usług: Przejrzyste progi cenowe, gwarancja do 5 lat oraz natychmiastowe dodawanie do kalkulatora.</em></p>
+</div>
+
+<br/>
+
+### 3. 🔍 Krok 1: Wyszukiwarka Aut & Heurystyczna Klasyfikacja Gabarytów
+Klient wpisuje dokładny model swojego pojazdu (Marka, Model, Generacja, Typ nadwozia). Wyszukiwarka łączy się asynchronicznie z bazą katalogową aut, a wbudowany silnik heurystyczny automatycznie klasyfikuje pojazd do odpowiedniego segmentu gabarytowego (`Segment S`, `Segment M`, `Segment L / SUV`).
+
+<div align="center">
+  <img src="docs/screenshots/03_configurator_vehicle_search.png" alt="Wyszukiwarka Pojazdów i Detekcja Segmentu" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Krok 1 Konfiguratora: Autouzupełnianie na żywo dla Porsche 911 (992) Coupe, automatycznie zakwalifikowanego do Segmentu S.</em></p>
+</div>
+
+<br/>
+
+### 4. ⚡ Krok 2: Dynamiczny Kalkulator Wyceny & Matryca Reguł
+Wybór usług dynamicznie przelicza mnożniki cenowe oraz szacowane roboczogodziny studia. System pilnuje reguł powiązań (np. nałożenie ceramiki wymaga uprzedniej korekty lakieru) i generuje przejrzyste podsumowanie kosztorysu.
+
+<div align="center">
+  <img src="docs/screenshots/04_configurator_services_matrix.png" alt="Dynamiczny Kalkulator Wyceny" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Krok 2 Konfiguratora: Aktywny kosztorys na kwotę 3500 ZŁ, szacowane ~24.0h prac dla dwuetapowej korekty i powłoki ceramicznej 9H.</em></p>
+</div>
+
+<br/>
+
+### 5. 🪞 Krok 3: Interaktywny Suwak Porównania Przed / Po (Before & After)
+Klienci mogą ocenić jakość prac dzięki interaktywnemu sliderowi porównującemu stan lakieru przed i po korekcie (obsługa myszy, dotyku, filtrowanie kategorii: Korekta, Ceramika, Wnętrze).
+
+<div align="center">
+  <img src="docs/screenshots/05_before_after_comparison_slider.png" alt="Interaktywny Suwak Przed i Po" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Porównywarka Przed / Po: Precyzyjna inspekcja usunięcia rys i głębi lakieru na czarnym lakierze metalizowanym.</em></p>
+</div>
+
+<br/>
+
+### 6. 📊 Dashboard CRM Studia & Rurociąg Zleceń
+Centrum zarządzania studiem detailingu: miesięczne wskaźniki przychodu, aktywne zlecenia w procesie (`pending` ➔ `in_progress` ➔ `ready` ➔ `completed`), pozyskiwanie nowych klientów oraz wykresy obrotów.
+
+<div align="center">
+  <img src="docs/screenshots/06_admin_crm_dashboard.png" alt="Dashboard CRM Studia Detailingu" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Panel CRM: Kluczowe metryki biznesowe, statusy stanowisk detailingu, lista zleceń i szybkie przejście do bazy klientów.</em></p>
+</div>
+
+<br/>
+
+### 7. 🚘 Baza Klientów i Garaż Floty (LTV)
+Zarządzanie relacjami z klientami: profile klientów, powiązane garaże aut (np. Porsche 911 GT3 RS, BMW M3 CS), wskaźnik Customer Lifetime Value (LTV), historia wizyt oraz notatki techniczne.
+
+<div align="center">
+  <img src="docs/screenshots/07_admin_customers_fleet.png" alt="Baza Klientów i Garaż Aut" width="95%" style="border-radius: 6px; box-shadow: 0 2px 14px rgba(0,0,0,0.2);" />
+  <p><em>Zarządzanie Flotą: Profile z numerami rejestracyjnymi, VIN, etykietami całkowitego obrotu (14 450 zł LTV) oraz historią zleceń.</em></p>
 </div>
 
 ---
 
-## 📌 O Projekcie
-
-**Clean N Ride** to komercyjna, pełnozakresowa (full-stack) platforma internetowa wraz z dedykowanym systemem CRM, zaprojektowana dla studia auto detailingu klasy premium oraz motorsport aesthetic.
-
-Projekt rozwiązuje dwa kluczowe wyzwania biznesowe branży car detailingu:
-1. **Dla klienta**: Umożliwia precyzyjną i natychmiastową wycenę usług w oparciu o dokładny segment gabarytowy wybranego pojazdu oraz prezentuje efekty prac w interaktywnym porównywarce Przed / Po (Before/After).
-2. **Dla studia**: Oferuje lekki, ultraszybki system CRM do zarządzania klientami, flotą aut, harmonogramem wizyt, zleceniami oraz zautomatyzowanym potokiem powiadomień serwisowych (np. przeglądy powłok ceramicznych, odświeżanie wosków, pielęgnacja skór).
-
-Aplikacja została zbudowana z naciskiem na maksymalną wydajność, defensywne bezpieczeństwo, brak zbędnego narzutu ciężkich frameworków oraz płynne mikro-animacje (GSAP).
-
----
-
-## 🚀 Kluczowe Funkcjonalności
-
-### 1. 🧮 Inteligentny Kalkulator Wyceny On-line
-- **Baza Pojazdów**: Wbudowana baza SQLite zawierająca tysiące marek, modeli, generacji i fabrycznych typów nadwozia.
-- **Silnik Heurystyczny Segmentacji (`getModelBaseSegment`)**: Algorytm normalizujący dane urzędowe/katalogowe i przypisujący pojazdy do właściwych klas gabarytowych studia (S – Małe, M – Średnie, L – Duże / SUV).
-- **Złożone Reguły Zależności Usług**: Obsługa wykluczeń (`rules_excludes`), wymogów bezwzględnych (`rules_requires`) oraz alternatywnych zależności (`rules_requires_or` z trybami `AND`/`OR`).
-- **Wycena w Czasie Rzeczywistym**: Natychmiastowe przeliczanie ceny końcowej i szacowanego czasu realizacji przy wyborze pakietów, etapów korekty lakieru, powłok ceramicznych czy detailingu wnętrza.
-
-### 2. 📸 Interaktywny Slider Przed / Po (Before & After)
-- Interaktywny suwak umożliwiający płynne porównanie stanu lakieru przed i po korekcie (obsługa myszy i ekranów dotykowych).
-- Panel administracyjny pozwalający na dodawanie realizacji, wgrywanie zdjęć oraz sortowanie par porównawczych.
-
-### 3. 🛡️ Architektura Bezpieczeństwa (Security-First)
-- **Ochrona przed CSRF**: Krypto-bezpieczne tokeny (`bin2hex(random_bytes(32))`) weryfikowane przy każdym żądaniu typu POST metodą odporną na ataki czasowe.
-- **Utwardzone Sesje**: Flagi ciasteczek `SameSite=Strict`, `HttpOnly` oraz `Secure`. Regeneracja identyfikatora sesji (`session_regenerate_id(true)`) po zalogowaniu, eliminująca ryzyko Session Fixation.
-- **Ochrona przed Brute-Force & Rate Limiting (zgodne z RODO/GDPR)**:
-  - Ograniczenie liczby zapytań dla formularza kontaktowego (algorytm ruchomego okna – sliding window).
-  - Blokada logowania po 5 nieudanych próbach na 15 minut.
-  - **Brak jawnych adresów IP na dysku**: Identyfikatory IP są haszowane algorytmem SHA-256 przed zapisem, co gwarantuje pełną prywatność i zgodność z RODO.
-- **Walidacja Danych**: Rygorystyczna weryfikacja formatu danych, numerów telefonów, adresów e-mail oraz ograniczenia długości stringów.
-- **Bezpieczeństwo SQL**: Wyłączenie emulacji prepared statements (`PDO::ATTR_EMULATE_PREPARES => false`) i 100% zapytań parametryzowanych (ochrona przed SQL Injection).
-- **Konfiguracja Serwera**: Reguły `.htaccess` blokujące bezpośredni dostęp HTTP do plików konfiguracyjnych, baz danych SQLite, logów i katalogów systemowych.
-
-### 4. 📊 Studio CRM & Panel Administracyjny
-- **Karty Klientów & Wskaźnik LTV**: Pełna historia klienta, baza kontaktowa oraz automatyczne zliczanie całkowitej wartości klienta (Life-Time Value).
-- **Garaż Klienta**: Możliwość przypisania wielu pojazdów (marka, model, rocznik, nr rejestracyjny, VIN) do jednego klienta.
-- **Harmonogram & Zlecenia**: Statusy realizacji (`pending` ➔ `in_progress` ➔ `ready` ➔ `completed`) oraz kalendarz wizyt.
-- **Automatyczny System Przypomnień Serwisowych**:
-  - Przegląd powłoki ceramicznej po 6 i 12 miesiącach,
-  - Odświeżenie wosku po 3 i 4 miesiącach,
-  - Konserwacja tapicerki skórzanej po 6 miesiącach,
-  - Odświeżenie niewidzialnej wycieraczki po 6 miesiącach,
-  - Kompleksowy detox wnętrza po 12 miesiącach.
-- **Konfigurator Cennika i Usług**: Panel do edycji cennika dla segmentów S/M/L, szacowanego czasu pracy oraz powiązań między usługami.
-
----
-
-## 🏛️ Architektura Systemu
+## 🏗️ Architektura Systemu
 
 ```mermaid
 flowchart TD
     subgraph Klient["Warstwa Klienta (Przeglądarka)"]
-        UI["Nowoczesny UI / Animacje GSAP / Tailwind CSS"]
+        UI["Ciemny Motyw / Tailwind CSS / GSAP"]
         CALC["Interaktywny Kalkulator Gabarytów i Cen"]
-        GALLERY["Przeglądarka Realizacji Przed / Po"]
-        LEAD["Modal Rezerwacji & Zgłoszenia"]
+        SLIDER["Przeglądarka Realizacji Przed / Po"]
+        MODAL["Modal Rezerwacji & Zgłoszenia Leadów"]
     end
 
-    subgraph API["Backendowe REST API (PHP 8+)"]
-        API_CARS["/api/cars.php\nKatalog Aut & Heurystyka"]
-        API_SERVICES["/api/services.php\nUsługi & Reguły Logiczne"]
-        API_PROJECTS["/api/projects.php\nRealizacje & Pary Zdjęć"]
-        API_NOTIFY["/api/notify.php\nPrzyjmowanie Zgłoszeń z Throttlingiem"]
+    subgraph API["Backendowe API REST (PHP 8.1+)"]
+        API_CARS["/api/cars.php - Katalog Pojazdów & Silnik Heurystyczny"]
+        API_SERV["/api/services.php - Matryca Usług i Reguł Powiązań"]
+        API_PROJ["/api/projects.php - Pary Zdjęć Realizacji & Kategorie"]
+        API_LEAD["/api/notify.php - Ochrona Antyspamowa Leadów & Webhooki"]
     end
 
-    subgraph Bezpieczenstwo["Moduły Bezpieczeństwa"]
-        SEC_RATE["Rate Limiter (Hashowanie IP SHA-256)"]
-        SEC_AUTH["Ochrona CSRF & Twarde Sesje"]
-        SEC_BRUTE["Blokada Brute-Force Logowania"]
+    subgraph Bezpieczenstwo["Warstwa Bezpieczeństwa & Middleware"]
+        SEC_CSRF["Kryptograficzne Tokeny CSRF
+(hash_equals timing-safe)"]
+        SEC_RATE["Rate Limiter Ruchomego Okna
+(Haszowanie IP SHA-256 / Zgodne z RODO)"]
+        SEC_LOCK["Blokada Brute-Force
+(5 Błędnych Prób / 15 Minut Blokady)"]
+        SEC_SESS["Utwardzone Sesje
+(SameSite=Strict, HttpOnly, Secure)"]
     end
 
-    subgraph Dane["Bazy Danych & Pliki"]
-        SQLITE[("Baza SQLite\nKatalog Pojazdów")]
-        MYSQL[("Baza MySQL\nCRM, Klienci, Zlecenia, Cennik")]
-        FS[("Zabezpieczony System Plików\nUploads, Rate Limits")]
+    subgraph BazaDanych["Bazy Danych i Pliki"]
+        SQLITE[("Baza SQLite (baza/catalog.sqlite)
+Katalog Marek, Modeli i Nadwozi")]
+        MYSQL[("Baza MySQL / SQLite (crm.sqlite)
+CRM, Klienci, Flota, Zlecenia, Cennik")]
+        FS[("Bezpieczny System Plików
+Zapis Zdjęć Realizacji & Logi Rate Limitu")]
     end
 
-    subgraph Admin["Panel Studia (CRM)"]
-        DASH["Pulpit CRM & LTV Klientów"]
-        CALENDAR["Kalendarz Wizyt & Zlecenia"]
-        REMINDERS["Przypomnienia o Serwisach Powłok"]
-        PRICING_MGR["Zarządzanie Cennikiem"]
+    subgraph Admin["Panel Studia CRM (/admin)"]
+        DASH["Dashboard Wyników Studia i Wykresy"]
+        ORDERS["Rurociąg Stanowisk i Statusy Prac"]
+        FLEET["Zarządzanie Garażem Klientów (LTV)"]
+        REMINDERS["Potok Automatycznych Przypomnień Serwisowych"]
+        MATRIX["Konfigurator Usług, Cen S/M/L i Reguł"]
     end
 
-    UI --> CALC & GALLERY & LEAD
-    CALC --> API_CARS & API_SERVICES
-    GALLERY --> API_PROJECTS
-    LEAD --> SEC_RATE --> API_NOTIFY
-    
-    API_CARS --> SQLITE
-    API_SERVICES & API_PROJECTS & API_NOTIFY --> MYSQL
-
-    Admin --> SEC_AUTH --> SEC_BRUTE --> MYSQL & FS
+    Klient -->|HTTP / JSON Fetch| API
+    API --> Bezpieczenstwo
+    Bezpieczenstwo --> BazaDanych
+    Admin -->|Uwierzytelniona Sesja| BazaDanych
 ```
 
 ---
 
-## 🗄️ Model Bazy Danych
+## 🧠 Najważniejsze Rozwiązania Inżynieryjne
 
-Relacyjna struktura danych opiera się na 12 znormalizowanych tabelach:
+### 1. Silnik Heurystyczny Segmentacji Aut (`api/cars.php`)
+Bazy urzędowe i producenckie często zawierają błędy klasyfikacji (np. zakwalifikowanie luksusowego SUV-a jako kombi). Silnik heurystyczny normalizuje nazwy modeli i wymusza właściwe segmenty detailingu:
 
-| Tabela | Przeznaczenie | Kluczowe Relacje |
-|:---|:---|:---|
-| `users` | Dane kont administratorów i hashe haseł (`bcrypt`) | Uwierzytelnianie |
-| `sys_config` | Konfiguracja systemowa oraz wersjonowanie migracji | Globalna konfiguracja |
-| `customers` | Profile klientów, dane kontaktowe, wskaźnik LTV | 1:N z autami, zleceniami, wizytami |
-| `customer_cars` | Garaż pojazdów przypisanych do klienta | Klucz obcy ➔ `customers.id` |
-| `orders` | Zlecenia detailingu, wybrane usługi, ceny, statusy | Klucz obcy ➔ `customers.id` |
-| `appointments` | Zaplanowane wizyty w kalendarzu studia | Klucz obcy ➔ `customers.id` |
-| `service_reminders`| Zadania cyklicznych przeglądów (ceramika/wosk/skóra) | Klucz obcy ➔ `customers.id` |
-| `notifications` | Zgłoszenia ze strony i oczekujące wyceny | Ingestion leadów |
-| `calc_categories` | Kategorie usług w kalkulatorze | 1:N z `calc_services` |
-| `calc_services` | Usługi, cennik trójsegmentowy, reguły zależności | Zarządzane z poziomu CRM |
-| `projects` | Wpisy w galerii realizacji | 1:N z `project_pairs` |
-| `project_pairs` | Pary zdjęć Przed / Po z kolejnością wyświetlania | Klucz obcy ➔ `projects.id` |
+```php
+function getModelBaseSegment(string $brand, string $model): ?int {
+    $full = strtolower(trim($brand . ' ' . $model));
 
----
-
-## 💻 Wykorzystane Technologie
-
-- **Frontend**: HTML5, Vanilla JavaScript (ES6+), Tailwind CSS, GSAP 3 (GreenSock Animation Platform), ScrollTrigger, typografia Cinzel & Plus Jakarta Sans.
-- **Backend**: Czysty PHP 8.1+ (Obiektowe PDO, bez narzutu ciężkich frameworków).
-- **Bazy Danych**: 
-  - **MySQL 8.0+ / MariaDB**: Główna baza transakcyjna CRM (klucze obce, relacje kaskadowe, indeksy).
-  - **SQLite 3**: Wbudowana, ultraszybka baza katalogu pojazdów (~8 MB).
-- **Bezpieczeństwo**: Tokenizacja IP z SHA-256, ochrona CSRF, haszowanie haseł bcrypt, reguły dostępu Apache `.htaccess`.
-
----
-
-## 📂 Struktura Katalogów Projektu
-
-```text
-Clean-N-Ride/
-├── admin/                     # Zaplecze CRM i Panel Studia
-│   ├── db.php                 # Centralne połączenie PDO MySQL
-│   ├── index.php              # Główny panel CRM, Zlecenia, Kalendarz, Przypomnienia
-│   ├── login.php              # Bezpieczne logowanie z blokadą ataków brute-force
-│   └── logout.php             # Bezpieczne niszczenie sesji
-├── api/                       # Publiczne Punkty Końcowe (REST API)
-│   ├── cars.php               # Baza modeli aut & heurystyka segmentów
-│   ├── notify.php             # Obsługa formularza rezerwacji z rate-limitem
-│   ├── projects.php           # Realizacje i zdjęcia przed/po
-│   └── services.php           # Kategorie, cennik i reguły kalkulatora
-├── baza/                      # Bazy Danych i Schematy
-│   ├── .htaccess              # Blokada bezpośredniego pobierania baz przez HTTP
-│   ├── catalog.sqlite         # Wbudowany katalog modeli aut
-│   └── schema.sql             # Kompletny schemat bazy MySQL z danymi startowymi
-├── data/                      # Chronione Dane Wykonawcze
-│   ├── .htaccess              # Blokada dostępu (Deny from all)
-│   ├── login_attempts/        # Pamięć blokad logowania (.gitkeep)
-│   └── rate_limits/           # Pamięć throttlingu zapytań (.gitkeep)
-├── js/                        # Narzędzia Frontendowe
-│   └── car-utils.js           # Normalizacja nazw marek i modeli
-├── uploads/                   # Magazyn Multimediów
-│   └── gallery/               # Wgrane zdjęcia realizacji (.gitkeep)
-├── .gitattributes             # Standaryzacja końców linii (LF)
-├── .gitignore                 # Wykluczenia plików wrażliwych i cache
-├── .htaccess                  # Konfiguracja i utwardzenie serwera Apache
-├── Baner.jpeg                 # Tło sekcji Hero
-├── Logo.png                   # Identyfikacja wizualna studia
-├── config.example.php         # Bezpieczny szablon konfiguracji bazy
-├── index.html                 # Strona główna z kalkulatorem i portfolio
-├── LICENSE                    # Licencja MIT
-├── README.md                  # Dokumentacja projektu (angielska)
-└── README.pl.md               # Dokumentacja projektu (polska)
+    // Wymuszenie Segmentu L dla dużych SUV-ów i pickupów
+    if (preg_match('/\b(x5|x6|x7|q7|q8|gle|gls|cayenne|range rover|touareg|f-150|ram|urus|dbx)\b/i', $full)) {
+        return 2; // Segment L (SUV / Van / Limuzyna)
+    }
+    // Wymuszenie Segmentu S dla aut miejskich i kompaktowych coupe
+    if (preg_match('/\b(fiat 500|yaris|corsa|clio|i10|i20|up!|aygo|smart|mini)\b/i', $full)) {
+        return 0; // Segment S (Małe)
+    }
+    return null; // Fallback do bazy typów nadwozia (Sedan/Touring -> Segment M)
+}
 ```
 
+### 2. Ochrona Prywatności w Rate Limiterze (`api/notify.php`)
+Zgodnie z wymogami RODO/GDPR adresy IP nie mogą być trwale zapisywane na dysku w postaci jawnej. System haszuje IP algorytmem SHA-256 przed zapisem w plikach kontroli ruchomego okna:
+
+```php
+// Bezpieczny rate limiter bez jawnych adresów IP na dysku (RODO / GDPR)
+$clientIp      = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
+$hashedIp      = hash('sha256', $clientIp);
+$rateLimitFile = $rateLimitDir . $hashedIp . '.json';
+
+$now = time();
+$history = file_exists($rateLimitFile) ? json_decode(file_get_contents($rateLimitFile), true) : [];
+$history = array_filter($history, fn($ts) => ($now - $ts) < 300); // Ruchome okno 5 minut
+
+if (count($history) >= 5) {
+    http_response_code(429);
+    echo json_encode(['error' => 'Zbyt wiele zapytań. Odczekaj chwilę przed ponowną próbą.']);
+    exit;
+}
+```
+
+### 3. Matryca Zależności Usług (Dependency & Rule Engine)
+Kalkulator respektuje reguły powiązań technologicznych zdefiniowane w bazie:
+- `rules_requires`: Wymogi bezwzględne (np. nałożenie *Powłoki ceramicznej 9H* wymaga wykonania przynajmniej *Jednoetapowej korekty lakieru*).
+- `rules_excludes`: Usługi wykluczające się wzajemnie (np. *Korekta lakieru One-Step* wyklucza *Korektę Two-Step*).
+- `rules_requires_or`: Wymogi alternatywne (np. usługa wymaga pakietu A LUB pakietu B).
+
+### 4. Zautomatyzowany Cykl Przypomnień Serwisowych
+Trwałość detailingu zależy od regularnych inspekcji. Przy zakończeniu zlecenia CRM automatycznie kalkuluje terminy kolejnych wizyt:
+- **6 i 12 miesięcy**: Przegląd powłoki ceramicznej i dekontaminacja chemiczna
+- **3 i 4 miesiące**: Odświeżenie zabezpieczenia woskowego
+- **6 miesięcy**: Odżywienie i impregnacja skóry Swissvax
+- **6 miesięcy**: Aplikacja niewidzialnej wycieraczki
+- **12 miesięcy**: Antybakteryjny detox wnętrza
+
 ---
 
-## ⚡ Szybki Start & Uruchomienie Lokalne
+## 🗄️ Architektura Bazy Danych
 
-### Wymagania wstępne
-- **PHP 8.1** lub nowszy (z rozszerzeniami `pdo_mysql` oraz `pdo_sqlite`)
-- **MySQL 5.7+ / MariaDB 10.3+**
+1. **Katalog Pojazdów (`baza/catalog.sqlite`)**: Szybka, osadzona baza SQLite (~386 KB) z bazą marek, modeli, generacji i nadwozi.
+2. **Baza CRM i Aplikacji (`MySQL` z fallbackiem SQLite `baza/crm.sqlite`)**:
+   - `services`: Usługi detailingu, wyceny S/M/L, szacowany czas i reguły.
+   - `categories`: Grupy usług studia.
+   - `customers`: Karty klientów, dane kontaktowe, notatki, łączny obrót.
+   - `customer_cars`: Garaż aut klientów (numery rejestracyjne, VIN, rocznik, kolor, segment).
+   - `orders`: Zlecenia, przypisane auta, kosztorysy, statusy etapów prac.
+   - `projects`: Realizacje Przed/Po z przypisanymi parami zdjęć i kategoriami.
+   - `users`: Użytkownicy systemu CRM z hasłami bcrypt i uprawnieniami.
 
-### 1. Klonowanie repozytorium
+---
+
+## 🚀 Szybki Start & Uruchomienie Lokalne
+
+### Wymagania Systemowe
+- **PHP 8.1** lub wyższy (z aktywnymi rozszerzeniami `pdo_sqlite` oraz `pdo_mysql`)
+- **Serwer WWW** (wbudowany serwer PHP, Apache lub Nginx)
+- **MySQL 8.0+** (opcjonalnie; wbudowany fallback SQLite `crm.sqlite` działa w pełni samodzielnie)
+
+### 1. Klonowanie Repozytorium Showcase
 ```bash
-git clone https://github.com/verblo/clean-n-ride.git
-cd clean-n-ride
+git clone https://github.com/verblo/clean-n-ride-showcase.git
+cd clean-n-ride-showcase
 ```
 
-### 2. Konfiguracja połączenia z bazą
-Skopiuj plik szablonu konfiguracji:
+### 2. Konfiguracja Środowiska (Opcjonalnie)
+Dostępny jest przykładowy plik konfiguracyjny:
 ```bash
 cp config.example.php config.local.php
 ```
 
-Otwórz plik `config.local.php` i wpisz dane dostępowe do lokalnej bazy MySQL:
+W przypadku łączenia z serwerem MySQL podaj dane dostępowe:
 ```php
 define('DB_HOST',    'localhost');
 define('DB_NAME',    'cleannride_crm');
 define('DB_USER',    'root');
-define('DB_PASS',    'twoje_haslo');
+define('DB_PASS',    'twoje_bezpieczne_haslo');
 define('DB_CHARSET', 'utf8mb4');
 ```
+*Uwaga: W przypadku braku bazy MySQL platforma automatycznie przełącza się na lokalną bazę SQLite (`baza/crm.sqlite`).*
 
-### 3. Zaimportowanie bazy danych MySQL
-Utwórz bazę danych i wgraj przygotowany schemat ze startowymi danymi:
+### 3. Uruchomienie Serwera Developerskiego
 ```bash
-mysql -u root -p -e "CREATE DATABASE cleannride_crm CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;"
-mysql -u root -p cleannride_crm < baza/schema.sql
+php -d extension=pdo_sqlite -d extension=sqlite3 -S 127.0.0.1:8000
 ```
 
-### 4. Uruchomienie wbudowanego serwera PHP
-W głównym katalogu projektu uruchom:
-```bash
-php -S localhost:8000
-```
-
-### 5. Dostęp do aplikacji
-- **Strona Główna & Kalkulator**: [http://localhost:8000](http://localhost:8000)
-- **Panel CRM Administracji**: [http://localhost:8000/admin](http://localhost:8000/admin)
-  - **Domyślny login**: `admin`
-  - **Domyślne hasło**: `admin123` *(Pamiętaj o zmianie na produkcji!)*
+### 4. Dostęp do Platformy
+- **Strona Główna & Kalkulator Klienta**: [http://127.0.0.1:8000](http://127.0.0.1:8000)
+- **Panel CRM Studia**: [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin)
+  - **Login**: `admin`
+  - **Hasło**: `admin123`
 
 ---
 
 ## 📄 Licencja
 
-Projekt udostępniany jest na warunkach otwartoźródłowej licencji [MIT](LICENSE).
+Projekt objęty jest licencją [MIT License](LICENSE).
 
 ---
 
----
-
-## 💼 Informacja dla Rekruterów
+## 💥 Informacja dla Rekruterów / Recruiter Notice
 
 > **Pełny kod źródłowy projekt dostępny do wglądu dla rekruterów na życzenie po kontakcie mailowym.**
 > 
-> Pełna wersja kodu produkcyjnego, historia commitów oraz dokumentacja wdrożeniowa są udostępniane dla rekruterów i liderów technicznych:
+> Kompletny komercyjny kod źródłowy, pełna historia commitów oraz dokumentacja wdrożeniowa są dostępne dla rekruterów i zespołów technicznych po bezpośrednim kontakcie:
 > - 📬 **E-mail**: [dominikzatorski8@gmail.com](mailto:dominikzatorski8@gmail.com)
 > - 💼 **LinkedIn**: [Dominik Zatorski](https://pl.linkedin.com/in/dominik-zatorski-b1a82a1b9)
 > - 🐙 **Profil GitHub**: [@verblo](https://github.com/verblo)
@@ -261,5 +304,6 @@ Projekt udostępniany jest na warunkach otwartoźródłowej licencji [MIT](LICEN
 ## 👤 Autor
 
 **Dominik Zatorski**
-- GitHub: [@verblo](https://github.com/verblo)
+- Portfolio / GitHub: [@verblo](https://github.com/verblo)
 - LinkedIn: [Dominik Zatorski](https://pl.linkedin.com/in/dominik-zatorski-b1a82a1b9)
+- Email: [dominikzatorski8@gmail.com](mailto:dominikzatorski8@gmail.com)
