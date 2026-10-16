@@ -1,0 +1,40 @@
+# ─── Secrets & Local Config ───────────────────────────────────────────────────
+config.local.php
+.env
+.env.*
+baza.txt
+*.key
+*.pem
+
+# ─── Rate-limit & Login Attempts (preserve directory with .gitkeep) ───────────
+data/rate_limits/*
+!data/rate_limits/.gitkeep
+data/login_attempts/*
+!data/login_attempts/.gitkeep
+
+# ─── Uploads (preserve directory with .gitkeep) ────────────────────────────────
+uploads/gallery/*
+!uploads/gallery/.gitkeep
+
+# ─── Database dumps & temporary SQLite locks ──────────────────────────────────
+*.dump
+*.sql.gz
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+
+# ─── IDE & OS Noise ───────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+ehthumbs.db
+desktop.ini
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# ─── PHP Logs & Runtime Artifacts ─────────────────────────────────────────────
+*.log
+error_log
+test.txt
+admin/test.txt
